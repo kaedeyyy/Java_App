@@ -28,7 +28,7 @@ public class SecurityConfig {
         //.logout((logout) -> logout.permitAll())
             .authorizeHttpRequests(requests -> requests
             		.requestMatchers(PathRequest.toStaticResources().atCommonLocations().toString()).permitAll()
-            	    //.requestMatchers("/accountLogin").permitAll()
+            	    .requestMatchers("/accountLogin").permitAll()
             	    //.requestMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
            	    .anyRequest().authenticated()
             )
