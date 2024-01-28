@@ -7,7 +7,7 @@
 <body>
 	
 	<div clss="login_container">
-		<form action="http://localhost:8888/login" method="post">
+		<form form method="post" th:action="@{/accountLogin}">
 			<input type="text" name="username" class="login_input" placeholder="Username">
 			<input type="text" name="password" class="login_input" placeholder="Password">
 			<button type="submit" class="login-btn">Login</button>
