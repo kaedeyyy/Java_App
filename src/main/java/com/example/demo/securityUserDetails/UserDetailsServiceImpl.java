@@ -8,25 +8,27 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.AccountDao;
 import com.example.demo.dto.AccountDto;
+import com.example.demo.dto.UserForm;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 	
-	private final AccountDao accountDao;
+	//private final AccountDto accountDto;
     
-    public UserDetailsServiceImpl(AccountDao accountDao) {
-        this.accountDao = accountDao;
-    }
+    //public UserDetailsServiceImpl(UserForm userForm) {
+    //    this.accountDao = userForm;
+    //}
     
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     	
     	// DBからユーザー名に一致するデータを取得し、accountに詰める
-    	AccountDto accountDto = accountDao.findByUsername(username);
+    	//AccountDto accountDto = accountDao.findByUsername(username);
     	
-    	return User.withUsername(accountDto.getUser())
-                   .password(accountDto.getPass())
-                   .build();
+//    	return User.withUsername(accountDto.getUser())
+//                   .password(accountDto.getPass())
+//                   .build();
+    	return User.withUsername("user").password("pass").build();
     }
 
 }

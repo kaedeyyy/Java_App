@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -7,8 +7,8 @@
 <body>
 	
 	<div clss="login_container">
-		<form form method="post" th:action="@{/accountLogin}">
-			<input type="text" name="username" class="login_input" placeholder="Username">
+		<form form method="post" th:action="@{/login}"> th:object="${userForm}">
+			<input type="text" name="username" class="login_innameput" placeholder="Username">
 			<input type="text" name="password" class="login_input" placeholder="Password">
 			<button type="submit" class="login-btn">Login</button>
 		</form>
@@ -18,4 +18,25 @@
 	
 	
 </body>
+</html>-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
+    <head>
+        <title>Spring Security Example </title>
+    </head>
+    <body>
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+        <form th:action="@{/login}" method="post">
+            <div><label> User Name : <input type="text" name="username"/> </label></div>
+            <div><label> Password: <input type="password" name="password"/> </label></div>
+            <div><input type="submit" value="Sign In"/></div>
+        </form>
+    </body>
 </html>
+
